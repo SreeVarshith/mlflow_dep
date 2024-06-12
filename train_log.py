@@ -116,6 +116,14 @@ model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['ac
 # Start an MLflow run
 mlflow.tensorflow.autolog()
 
+
+remote_server ="https://dagshub.com/SreeVarshith/mlflow_dep.mlflow"
+mlflow.set_tracking_uri(remote_server)
+
+
+
+
+
 with mlflow.start_run() as run:
     # Log hyperparameters
     for key, value in params.items():
